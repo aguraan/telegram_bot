@@ -3,7 +3,7 @@ services:
   app:
     container_name: node-tg-bot
     restart: always
-    build: ./bot_app
+    build: .
     depends_on: 
       - 'setup-rs'
   #   links:

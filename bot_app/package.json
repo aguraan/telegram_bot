@@ -4,8 +4,8 @@
   "description": "\"telegram bot on telegraf.js\"",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon index"
+    "start": "NODE_ENV=production node index",
+    "dev": "NODE_ENV=development nodemon index"
   },
   "repository": {
     "type": "git",

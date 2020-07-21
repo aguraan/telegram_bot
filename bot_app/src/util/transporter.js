@@ -9,11 +9,6 @@ const {
     EMAIL_ADMIN,
     EMAIL_ADDRESS
 } = process.env
-// const {
-//     google,
-//     EMAIL_ADMIN,
-//     EMAIL_ADDRESS
-// } = require('../../config.json')
 
 let accessToken = ''
 
