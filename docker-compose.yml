@@ -6,6 +6,8 @@ services:
     build: .
     depends_on: 
       - 'setup-rs'
+    expose: 
+      - "3001"
   #   links:
   #     - schemedb
   # schemedb:

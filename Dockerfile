@@ -9,4 +9,6 @@ RUN npm install
 COPY ./bot_app ./
 COPY .env .
 
+ENV NODE_ENV production
+
 CMD ["npm", "start"]

@@ -7,14 +7,15 @@ require('dotenv').config({
 const { logError } = require('./src/util/log');
 const bot = require('./src/bot')
 const mongoose = require('mongoose')
-
+const fs = require('fs')
 
 const {
     MONGO_DB_NAME,
     MONGO_PASSWORD,
     MONGO_PORT,
     MONGO_USERNAME,
-    MONGO_HOSTNAME
+    MONGO_HOSTNAME,
+    NODE_ENV
 } = process.env
 
 // Connect to DataBase
@@ -37,4 +38,21 @@ bot.use(require('./src/middlewares'))
 
 bot.catch(logError)
 
-bot.launch()
+
+if (process.env.NODE_ENV === 'production') {
+
+    const tlsOptions = {
+        key: fs.readFileSync('/etc/letsencrypt/live/scheme.com.ua/privkey.pem'),
+        cert: fs.readFileSync('/etc/letsencrypt/live/scheme.com.ua/cert.pem')
+    }
+
+    bot.telegram.setWebhook(process.env.WEB_HOOKS_SECRET_URL)
+    bot.startWebhook(process.env.WEB_HOOKS_PATH, tlsOptions, process.env.PORT)
+
+    console.info('Bot launched. mode: Webhook')
+} else {
+
+    bot.launch()
+
+    console.info('Bot launched. mode: long-polling')
+}
