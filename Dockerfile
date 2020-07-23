@@ -9,4 +9,6 @@ RUN npm install
 COPY ./bot_app ./
 COPY .env .
 
+EXPOSE 3001
+
 CMD ["npm", "start"]
