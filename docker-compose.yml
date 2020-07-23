@@ -11,7 +11,8 @@ services:
     environment: 
       NODE_ENV: production
     volumes:
-      - /etc/letsencrypt/live/scheme.com.ua/:/etc/letsencrypt/live/scheme.com.ua/
+      - /etc/letsencrypt/live/scheme.com.ua/privkey.pem:/letsencrypt/privkey.pem:ro
+      - /etc/letsencrypt/live/scheme.com.ua/cert.pem:/letsencrypt/cert.pem:ro
   #   links:
   #     - schemedb
   # schemedb:

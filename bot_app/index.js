@@ -4,7 +4,6 @@ require('dotenv').config({
     path: resolve(__dirname, process.env.NODE_ENV === 'local' ? '..' : '', '.env')
 })
 
-console.log('process.env.NODE_ENV',process.env.NODE_ENV)
 
 const { logError } = require('./src/util/log');
 const bot = require('./src/bot')
@@ -44,8 +43,8 @@ bot.catch(logError)
 if (process.env.NODE_ENV === 'production') {
 
     const tlsOptions = {
-        key: fs.readFileSync('/etc/letsencrypt/live/scheme.com.ua/privkey.pem'),
-        cert: fs.readFileSync('/etc/letsencrypt/live/scheme.com.ua/cert.pem')
+        key: fs.readFileSync('/letsencrypt/privkey.pem'),
+        cert: fs.readFileSync('/letsencrypt/cert.pem')
     }
 
     bot.telegram.setWebhook(process.env.WEB_HOOKS_SECRET_URL)
