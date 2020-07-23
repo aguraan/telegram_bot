@@ -44,8 +44,8 @@ bot.catch(logError)
 if (process.env.NODE_ENV === 'production') {
 
     const tlsOptions = {
-        key: fs.readFileSync(resolve(__dirname, 'tls', 'privkey.pem')),
-        cert: fs.readFileSync(resolve(__dirname, 'tls', 'cert.pem'))
+        key: fs.readFileSync('/tls/privkey.pem'),
+        cert: fs.readFileSync('/tls/cert.pem')
     }
 
     bot.telegram.setWebhook(process.env.WEB_HOOKS_SECRET_URL)
