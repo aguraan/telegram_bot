@@ -11,7 +11,7 @@ services:
     environment: 
       NODE_ENV: production
     volumes:
-      - /etc/letsencrypt/live/scheme.com.ua:/tls
+      - /etc/letsencrypt/live/scheme.com.ua:/tls:ro
   #   links:
   #     - schemedb
   # schemedb:
