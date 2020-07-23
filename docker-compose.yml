@@ -8,6 +8,10 @@ services:
       - 'setup-rs'
     expose: 
       - "3001"
+    environment: 
+      NODE_ENV: production
+    volumes:
+      - /etc/letsencrypt/live/scheme.com.ua:/tls
   #   links:
   #     - schemedb
   # schemedb:
