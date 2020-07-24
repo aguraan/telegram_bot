@@ -40,14 +40,14 @@ services:
     environment:
       MONGO_INITDB_DATABASE: ${MONGO_DB_NAME}
   mongo-rs0-2:
-    image: 'mongo'
+    image: 'mongo:$MONGO_VERSION'
     command: --replSet rs0 --oplogSize 128
     ports:
       - '27018:27017'
     volumes: 
       - ./mongo-rs0-2/data:/data/db
   mongo-rs0-3:
-    image: 'mongo'
+    image: 'mongo:$MONGO_VERSION'
     command: --replSet rs0 --oplogSize 128
     ports:
       - '27019:27017'

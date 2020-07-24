@@ -1,4 +1,4 @@
-FROM mongo
+FROM mongo:4.2.8
 
 WORKDIR /usr/src/configs
 
