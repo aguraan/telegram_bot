@@ -22,13 +22,14 @@ const {
 // Connect to DataBase
 // const mongoURL = `mongodb://${ MONGO_USERNAME }:${ MONGO_PASSWORD }@${ MONGO_HOSTNAME }:${ MONGO_PORT }/${ MONGO_DB_NAME }`
 // const mongoURL = `mongodb://${ MONGO_HOSTNAME }:${ MONGO_PORT }/${ MONGO_DB_NAME }`
-const mongoURL = `mongodb://mongo-rs0-1,mongo-rs0-2,mongo-rs0-3/schemedb`
+const mongoURL = `mongodb://mongo-rs0-1,mongo-rs0-2,mongo-rs0-3`
 // const mongoURL = `mongodb://${ MONGO_HOSTNAME }:${ MONGO_PORT }`
 const mongoOptions = {
     useNewUrlParser: true,
-    useUnifiedTopology: false,
+    useUnifiedTopology: true,
     useFindAndModify: false,
-    useCreateIndex: true
+    useCreateIndex: true,
+    dbName: 'schemedb'
 }
 mongoose.Promise = global.Promise
 mongoose.connect(mongoURL, mongoOptions)
