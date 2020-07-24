@@ -58,9 +58,3 @@ services:
     build: ./setup
     depends_on: 
       - 'mongo-rs0-1'
-  adminmongo:
-    image: 'mrvautin/adminmongo'
-    ports:
-      - '1234:1234'
-    environment: 
-      HOST: '0.0.0.0'
