@@ -26,7 +26,7 @@ const mongoURL = `mongodb://mongo-rs0-1,mongo-rs0-2,mongo-rs0-3/schemedb`
 // const mongoURL = `mongodb://${ MONGO_HOSTNAME }:${ MONGO_PORT }`
 const mongoOptions = {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
+    useUnifiedTopology: false,
     useFindAndModify: false,
     useCreateIndex: true
 }
