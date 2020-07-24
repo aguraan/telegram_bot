@@ -8,7 +8,6 @@ require('dotenv').config({
 const { logError } = require('./src/util/log');
 const bot = require('./src/bot')
 const mongoose = require('mongoose')
-const fs = require('fs')
 
 const {
     MONGO_DB_NAME,
@@ -42,11 +41,6 @@ bot.catch(logError)
 
 
 if (process.env.NODE_ENV === 'production') {
-
-    // const tlsOptions = {
-    //     key: fs.readFileSync('/letsencrypt/privkey.pem'),
-    //     cert: fs.readFileSync('/letsencrypt/cert.pem')
-    // }
 
     bot.telegram.setWebhook(process.env.WEB_HOOKS_SECRET_URL)
     bot.startWebhook(process.env.WEB_HOOKS_PATH, null, process.env.PORT)
